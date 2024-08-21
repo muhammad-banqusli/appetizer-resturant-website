@@ -1,0 +1,17 @@
+export { default as MaxWidthWrapper } from './MaxWidthWrapper'
+export { default as ImageSlider } from './ImageSlider'
+export { default as Footer } from './Footer'
+export { default as Navbar } from './Navbar'
+export { default as Testimonial } from './Testimonial'
+export { default as InstagramImages } from './InstagramImagesSection'
+export { default as About } from './About'
+export { default as OurChefs } from './OurChefs'
+export { default as Services } from './Services'
+export { default as StatisticsComponent } from './StatisticsComponent'
+export { default as OurMenu } from './OurMenu'
+
+
+export { default as Quotes } from './icons/Quotes'
+export { default as Facebook } from './icons/Facebook'
+export { default as Instagram } from './icons/Instagram'
+export { default as XIcon } from './icons/XIcon'

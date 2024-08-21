@@ -1,0 +1,67 @@
+/* styles.css */
+
+/* Customize the next and previous arrows */
+.swiper-button-next,
+.swiper-button-prev {
+    color: #ffffff; /* Arrow color */
+
+    opacity: 0; /* Hide the arrows */
+    transition: all 1s ease; /* Smooth transition */
+    z-index: 9999;
+}
+
+.swiper-button-next {
+    transform: translateX(50px);
+}
+.swiper-button-prev {
+    transform: translateX(-50px);
+}
+
+/* Adjust the size of the arrow icons */
+.swiper-button-next::after,
+.swiper-button-prev::after {
+    font-size: 20px; /* Arrow icon size */
+    color: transparent;
+    z-index: 9999;
+}
+
+.mySwiper:hover .swiper-button-next,
+.mySwiper:hover .swiper-button-prev {
+    opacity: 1; /* Show the arrows */
+    transform: translateX(0);
+}
+
+/* Default pagination dots styling */
+.swiper-pagination-bullet {
+    background-color: #000; /* Default color of the pagination dots */
+    width: 16px; /* Width of the dots */
+    height: 16px; /* Height of the dots */
+    opacity: 0.3; /* Ensure dots are fully opaque */
+    transition: opacity 0.3s ease; /* Smooth color transition */
+    border: 3px solid #fff;
+    z-index: 999;
+}
+
+/* Active pagination dot styling */
+.swiper-pagination-bullet-active {
+    opacity: 0.8;
+}
+
+.swiper-button-prev {
+    background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D'http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg'%20viewBox%3D'0%200%2027%2044'%3E%3Cpath%20d%3D'M0%2C22L22%2C0l2.1%2C2.1L4.2%2C22l19.9%2C19.9L22%2C44L0%2C22L0%2C22L0%2C22z'%20fill%3D'white'%20stroke%3D'white'%20stroke-width%3D'3'%2F%3E%3C%2Fsvg%3E") !important;
+    background-repeat: no-repeat; /* Prevents tiling of the background image */
+    background-position: center; /* Centers the image in the button */
+    background-size: contain; /* Ensures the entire image fits within the button */
+    height: 24px;
+    width: 24px; /* Adjust to the desired size of the button */
+}
+
+.swiper-button-next {
+    background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D'http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg'%20viewBox%3D'0%200%2027%2044'%3E%3Cpath%20d%3D'M27%2C22L5%2C0L2.9%2C2.1L22.8%2C22L2.9%2C41.9L5%2C44L27%2C22L27%2C22L27%2C22z'%20fill%3D'white'%20stroke%3D'white'%20stroke-width%3D'3'%2F%3E%3C%2Fsvg%3E") !important;
+    background-repeat: no-repeat; /* Prevents tiling of the background image */
+    background-position: center; /* Centers the image in the button */
+    background-size: contain; /* Ensures the entire image fits within the button */
+    height: 24px;
+    width: 24px; /* Adjust to the desired size of the button */
+}
+
