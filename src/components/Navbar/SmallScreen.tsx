@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import MaxWidthWrapper from "../MaxWidthWrapper";
-import { useState, useEffect, useRef } from "react";
+import { useState, useEffect, useRef, Dispatch, SetStateAction } from "react";
 import { Button } from "../ui/button";
 import { usePathname } from "next/navigation";
 import { NavItemType, navItems } from "./navItems";
@@ -68,7 +68,12 @@ const Static = ({
     closeMenu: () => void;
 }) => {
     const navRef = useRef(null);
-    useClickOutside(navRef, () => closeMenu(), "toggle-sidebar-button");
+    useClickOutside(
+        navRef,
+        () => closeMenu(),
+        "toggle-sidebar-button-static",
+        "toggle-sidebar-button-dynamic"
+    );
     return (
         <div
             className="bg-black top-0 text-white lg:hidden w-full py-4 z-[9999999]"
@@ -80,7 +85,7 @@ const Static = ({
                         <Link href="/">Appetizer</Link>
                     </div>
                     <button
-                        id="toggle-sidebar-button"
+                        id="toggle-sidebar-button-static"
                         className="bg-transparent text-white opacity-50 m-0 text-sm"
                         onClick={toggleMenu}
                     >
@@ -105,14 +110,21 @@ const Dynamic = ({
     navbarOpen,
     toggleMenu,
     closeMenu,
+    setNavbarOpen,
 }: {
     navbarOpen: boolean;
     toggleMenu: () => void;
     closeMenu: () => void;
+    setNavbarOpen: Dispatch<SetStateAction<boolean>>;
 }) => {
     const [visible, setVisible] = useState(false);
     const navRef = useRef(null);
-    useClickOutside(navRef, () => closeMenu(), "toggle-sidebar-button");
+    useClickOutside(
+        navRef,
+        () => closeMenu(),
+        "toggle-sidebar-button-static",
+        "toggle-sidebar-button-dynamic"
+    );
 
     useEffect(() => {
         const toggleVisible = () => {
@@ -146,9 +158,12 @@ const Dynamic = ({
                         <Link href="/">Appetizer</Link>
                     </div>
                     <button
-                        id="toggle-sidebar-button"
+                        id="toggle-sidebar-button-dynamic"
                         className="bg-transparent text-black opacity-50 m-0 text-sm"
-                        onClick={toggleMenu}
+                        onClick={(e) => {
+                            e.stopPropagation();
+                            toggleMenu();
+                        }}
                     >
                         ☰ MENU
                     </button>
@@ -182,6 +197,7 @@ export default function SmallScreen() {
                 navbarOpen={navbarOpen}
                 toggleMenu={toggleMenu}
                 closeMenu={closeMenu}
+                setNavbarOpen={setNavbarOpen}
             />
         </>
     );

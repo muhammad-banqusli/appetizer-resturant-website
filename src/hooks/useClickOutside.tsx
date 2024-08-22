@@ -2,28 +2,34 @@ import { RefObject, useEffect } from "react";
 
 const useClickOutside = (
     ref: RefObject<HTMLElement>,
-    handler: (ev: MouseEvent | TouchEvent) => void,
-    toggleSidebarButtonId: string
+    handler: () => void,
+    toggleSidebarButtonDynamicId: string,
+    toggleSidebarButtonStaticId?: string
 ) => {
     useEffect(() => {
         function listener(event: MouseEvent | TouchEvent) {
-           
-
-            const toggleSidebar = document.getElementById("toggle-sidebar");
-            const toggleSidebarButton = document.getElementById(
-                toggleSidebarButtonId
+            const toggleSidebarButtonDynamic = document.getElementById(
+                toggleSidebarButtonDynamicId
             );
-          
+            const toggleSidebarButtonStatic = document.getElementById(
+                toggleSidebarButtonStaticId|| 'asdjfl;asjfdl;kajsfljas;lfjd;ajf'
+            );
+
+            // Check if click is outside the menu or on the toggle button
             if (
                 !ref.current ||
                 ref.current.contains(event.target as Node) ||
-                // toggleSidebar && toggleSidebar === event.target ||
-                (!!toggleSidebarButton && toggleSidebarButton == event.target)
+                (toggleSidebarButtonDynamic &&
+                    toggleSidebarButtonDynamic.contains(
+                        event.target as Node
+                    )) ||
+                (toggleSidebarButtonStatic &&
+                    toggleSidebarButtonStatic.contains(event.target as Node))
             ) {
                 return;
             }
 
-            handler(event);
+            handler();
         }
 
         document.addEventListener("mousedown", listener);
