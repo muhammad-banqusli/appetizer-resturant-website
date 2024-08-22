@@ -21,7 +21,7 @@ export const statistics: Statistic[] = [
         title: "Menus",
     },
     {
-        id: 1,
+        id: 4,
         number: 20,
         title: "Staff",
     },

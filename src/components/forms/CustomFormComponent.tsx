@@ -91,7 +91,7 @@ export default function CustomFormField(props: CustomFormFieldPropTypes) {
                             </FormControl>
                             <SelectContent>
                                 {options?.map((option) => (
-                                    <SelectItem value={option.value}>
+                                    <SelectItem key={option.value} value={option.value}>
                                         {option.text}
                                     </SelectItem>
                                 ))}

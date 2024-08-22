@@ -7,14 +7,18 @@ const useClickOutside = (
 ) => {
     useEffect(() => {
         function listener(event: MouseEvent | TouchEvent) {
-            const toggleSidebar = document.getElementById("toggle-sidebar")
-            const toggleSidebarButton = document.getElementById(toggleSidebarButtonId)
            
+
+            const toggleSidebar = document.getElementById("toggle-sidebar");
+            const toggleSidebarButton = document.getElementById(
+                toggleSidebarButtonId
+            );
+          
             if (
                 !ref.current ||
                 ref.current.contains(event.target as Node) ||
-                toggleSidebar && toggleSidebar === event.target ||
-                toggleSidebarButton && toggleSidebarButton === event.target
+                // toggleSidebar && toggleSidebar === event.target ||
+                (!!toggleSidebarButton && toggleSidebarButton == event.target)
             ) {
                 return;
             }

@@ -14,6 +14,7 @@ export interface SliderItemType {
     text: string;
     imgSrc: string;
     imgAlt: string;
+    id: number;
 }
 
 // import required modules
@@ -85,8 +86,8 @@ export default function ImageSlider() {
                     disableOnInteraction: false, // Autoplay won't stop after user interaction
                 }}
             >
-                {sliderItems.map((item, index) => (
-                    <SwiperSlide key={index}>
+                {sliderItems.map((item) => (
+                    <SwiperSlide key={item.id}>
                         {({ isActive }) => (
                             <SwiperItem isActive={isActive} item={item} />
                         )}

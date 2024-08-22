@@ -68,7 +68,7 @@ const Static = ({
     closeMenu: () => void;
 }) => {
     const navRef = useRef(null);
-    useClickOutside(navRef, () => closeMenu());
+    useClickOutside(navRef, () => closeMenu(), "toggle-sidebar-button");
     return (
         <div
             className="bg-black top-0 text-white lg:hidden w-full py-4 z-[9999999]"
@@ -80,6 +80,7 @@ const Static = ({
                         <Link href="/">Appetizer</Link>
                     </div>
                     <button
+                        id="toggle-sidebar-button"
                         className="bg-transparent text-white opacity-50 m-0 text-sm"
                         onClick={toggleMenu}
                     >
