@@ -11,7 +11,7 @@ import useClickOutside from "@/hooks/useClickOutside";
 
 const NavItem = ({ item }: { item: NavItemType }) => {
     const pathname = usePathname();
-    
+
     return (
         <Link
             href={item.target}
@@ -23,8 +23,8 @@ const NavItem = ({ item }: { item: NavItemType }) => {
                 className={cn(
                     "capitalize text-xs text-white opacity-70 hover:text-white transition-all duration-300 select-none",
                     {
-                        "text-white opacity-100": pathname === item.target || item.specialStyling,
-                        
+                        "text-white opacity-100":
+                            pathname === item.target || item.specialStyling,
                     }
                 )}
             >
@@ -47,7 +47,8 @@ const DynamicNavItem = ({ item }: { item: NavItemType }) => {
                 className={cn(
                     "capitalize text-xs hover:text-white transition-all duration-300 select-none",
                     {
-                        "text-primary opacity-100": pathname === item.target && !item.specialStyling,
+                        "text-primary opacity-100":
+                            pathname === item.target && !item.specialStyling,
                     }
                 )}
             >
@@ -60,16 +61,19 @@ const DynamicNavItem = ({ item }: { item: NavItemType }) => {
 const Static = ({
     navbarOpen,
     toggleMenu,
-    closeMenu
+    closeMenu,
 }: {
     navbarOpen: boolean;
     toggleMenu: () => void;
     closeMenu: () => void;
 }) => {
-    const navRef = useRef(null)
+    const navRef = useRef(null);
     useClickOutside(navRef, () => closeMenu());
     return (
-        <div className="bg-black top-0 text-white lg:hidden w-full py-4 z-[9999999]" ref={navRef}>
+        <div
+            className="bg-black top-0 text-white lg:hidden w-full py-4 z-[9999999]"
+            ref={navRef}
+        >
             <MaxWidthWrapper className="h-fit">
                 <div className="flex w-full justify-between items-center">
                     <div className="font-black font-Poppins text-[20px]">
@@ -84,7 +88,7 @@ const Static = ({
                 </div>
                 <div
                     className={`transition-all duration-1000 ${
-                        navbarOpen  ? "max-h-screen" : "max-h-0"
+                        navbarOpen ? "max-h-screen" : "max-h-0"
                     } overflow-hidden`}
                 >
                     {navItems.map((item) => (
@@ -99,15 +103,15 @@ const Static = ({
 const Dynamic = ({
     navbarOpen,
     toggleMenu,
-    closeMenu
+    closeMenu,
 }: {
     navbarOpen: boolean;
     toggleMenu: () => void;
     closeMenu: () => void;
 }) => {
     const [visible, setVisible] = useState(false);
-    const navRef = useRef(null)
-    useClickOutside(navRef, () => closeMenu());
+    const navRef = useRef(null);
+    useClickOutside(navRef, () => closeMenu(), "toggle-sidebar-button");
 
     useEffect(() => {
         const toggleVisible = () => {
@@ -141,6 +145,7 @@ const Dynamic = ({
                         <Link href="/">Appetizer</Link>
                     </div>
                     <button
+                        id="toggle-sidebar-button"
                         className="bg-transparent text-black opacity-50 m-0 text-sm"
                         onClick={toggleMenu}
                     >
@@ -150,7 +155,7 @@ const Dynamic = ({
                 <div
                     className={`transition-all duration-1000 ${
                         navbarOpen ? "max-h-screen" : "max-h-0"
-                    } ${!visible? "hidden":""} overflow-hidden`}
+                    } ${!visible ? "hidden" : ""} overflow-hidden`}
                 >
                     {navItems.map((item) => (
                         <DynamicNavItem key={item.text} item={item} />
@@ -164,11 +169,19 @@ const Dynamic = ({
 export default function SmallScreen() {
     const [navbarOpen, setNavbarOpen] = useState(false);
     const toggleMenu = () => setNavbarOpen((prev) => !prev);
-    const closeMenu = () => setNavbarOpen(false)
+    const closeMenu = () => setNavbarOpen(false);
     return (
         <>
-            <Static navbarOpen={navbarOpen} toggleMenu={toggleMenu} closeMenu={closeMenu} />
-            <Dynamic navbarOpen={navbarOpen} toggleMenu={toggleMenu} closeMenu={closeMenu}/>
+            <Static
+                navbarOpen={navbarOpen}
+                toggleMenu={toggleMenu}
+                closeMenu={closeMenu}
+            />
+            <Dynamic
+                navbarOpen={navbarOpen}
+                toggleMenu={toggleMenu}
+                closeMenu={closeMenu}
+            />
         </>
     );
 }

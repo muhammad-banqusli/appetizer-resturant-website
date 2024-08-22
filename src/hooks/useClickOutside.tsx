@@ -2,12 +2,13 @@ import { RefObject, useEffect } from "react";
 
 const useClickOutside = (
     ref: RefObject<HTMLElement>,
-    handler: (ev: MouseEvent | TouchEvent) => void
+    handler: (ev: MouseEvent | TouchEvent) => void,
+    toggleSidebarButtonId: string
 ) => {
     useEffect(() => {
         function listener(event: MouseEvent | TouchEvent) {
             const toggleSidebar = document.getElementById("toggle-sidebar")
-            const toggleSidebarButton = document.getElementById("toggle-sidebar-button")
+            const toggleSidebarButton = document.getElementById(toggleSidebarButtonId)
            
             if (
                 !ref.current ||
