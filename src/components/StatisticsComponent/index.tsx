@@ -29,7 +29,7 @@ const StatisticComponent = () => {
                                         from={0}
                                         to={statistic.number}
                                         separator=","
-                                        duration={1}
+                                        duration={0.5}
                                         className="text-[40px] font-medium font-Poppins"
                                     />
                                     <span className="text-[#222222] text-center">

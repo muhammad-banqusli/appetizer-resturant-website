@@ -30,11 +30,19 @@ const SwiperItem = ({
 }) => {
     return (
         <>
-            <div className={`pointer-events-none w-full h-full absolute bg-white ${isActive? "opacity-0":"opacity-50"} transition-all duration-700 z-50`} />
+            <div
+                className={`pointer-events-none w-full h-full absolute bg-white ${
+                    isActive ? "opacity-0" : "opacity-50"
+                } transition-all duration-700 z-50`}
+            />
             <div className="w-full h-full absolute bg-black opacity-50 z-10" />
             <div className="w-full h-full flex justify-center">
                 <MaxWidthWrapper className="h-full w-full absolute z-10 flex flex-col items-center justify-center">
-                    <h1 className={`text-white font-Monoton font-normal text-center line-h tracking-[2px] uppercase text-[30px] md:text-[5vw] ${isActive? 'translate-y-0': 'translate-y-8'} transition-all duration-1000`}>
+                    <h1
+                        className={`text-white font-Monoton font-normal text-center line-h tracking-[2px] uppercase text-[30px] md:text-[5vw] ${
+                            isActive ? "translate-y-0" : "translate-y-8"
+                        } transition-all duration-1000`}
+                    >
                         {item.text}
                     </h1>
                     <div className="w-full flex gap-1 justify-center mt-6 flex-col xs:flex-row">
@@ -44,7 +52,6 @@ const SwiperItem = ({
                         <Button className="bg-transparent hover:bg-[#212529] border border-white border-opacity-80 hover:text-primary transition-all px-4 py-7 text-base leading-6 rounded-[2px] duration-300">
                             View Menu
                         </Button>
-                        
                     </div>
                 </MaxWidthWrapper>
             </div>
@@ -77,7 +84,6 @@ export default function ImageSlider() {
                     delay: 3000, // Time between slides in milliseconds
                     disableOnInteraction: false, // Autoplay won't stop after user interaction
                 }}
-                
             >
                 {sliderItems.map((item, index) => (
                     <SwiperSlide key={index}>
