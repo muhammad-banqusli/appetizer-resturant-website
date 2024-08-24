@@ -13,7 +13,7 @@ export default function VideoButton() {
     return (
         <AlertDialog>
             <AlertDialogTrigger asChild>
-                <Button className="bg-primary size-[90px] rounded-full absolute -bottom-9 z-10 right-0 left-0 m-auto">
+                <Button className="bg-primary size-[90px] rounded-full absolute -bottom-9 z-50 right-0 left-0 m-auto">
                     <Play className="fill-white" />
                 </Button>
             </AlertDialogTrigger>

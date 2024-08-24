@@ -10,6 +10,9 @@ export { default as Services } from './Services'
 export { default as StatisticsComponent } from './StatisticsComponent'
 export { default as BookAReservation } from './BookAReservation'
 export { default as OurMenu } from './OurMenu'
+export { default as ParallaxWithHeader } from './ParallaxWithHeader'
+export { default as DynamicBreadcrumb } from './DynamicBreadcrumb'
+export { default as Pagination } from './Pagination'
 
 
 export { default as Quotes } from './icons/Quotes'

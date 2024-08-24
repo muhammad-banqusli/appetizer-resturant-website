@@ -63,7 +63,7 @@ export default function LargeScreenDynamic() {
         <div
             className={cn(
                 "fixed z-50 bg-white top-0 hidden lg:flex w-full justify-center text-black transition-all duration-300 shadow-gray-200 drop-shadow-sm",{
-                    "-translate-y-10": !visible,
+                    "-translate-y-11": !visible,
                     "translate-y-0": visible,
                 }
             )}

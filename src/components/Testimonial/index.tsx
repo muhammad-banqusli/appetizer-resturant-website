@@ -3,7 +3,7 @@ import TestimonySlides from "./TestimonySlides";
 
 const Testimonial = () => {
     return (
-        <section className="calc-mobile-height md:calc-pc-height relative w-full">
+        <section className="calc-mobile-height md:calc-pc-height relative w-full xl:max-h-screen">
             <div className="w-full h-full absolute bg-white bg-opacity-80 z-10 flex items-center justify-center">
                 <MaxWidthWrapper className="h-auto m-4">
                     <div className="text-center relative">

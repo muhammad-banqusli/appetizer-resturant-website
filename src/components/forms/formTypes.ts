@@ -18,6 +18,18 @@ export const ReservationFormValidation = z.object({
     person: z.number().int()
 });
 
+export const ContactFormValidation = z.object({
+    name: z
+        .string()
+        .min(2, {
+            message: "Username must be at least 2 characters.",
+        })
+        .max(50, "Name must be at most 50 characters"),
+    email: z.string().email(),
+    subject: z.string().max(200).min(10),
+    message: z.string().max(500).min(20)
+});
+
 export interface CustomFormFieldPropTypes {
     control: Control<any>;
     name: string;

@@ -24,6 +24,7 @@ import { Button } from "../ui/button";
 import { add, format } from "date-fns";
 import { cn } from "@/lib/utils";
 import { Calendar } from "../ui/calendar";
+import { Textarea } from "../ui/textarea";
 
 export default function CustomFormField(props: CustomFormFieldPropTypes) {
     const { control, formFieldType, name, label } = props;
@@ -34,13 +35,7 @@ export default function CustomFormField(props: CustomFormFieldPropTypes) {
         field: any;
         props: CustomFormFieldPropTypes;
     }) => {
-        const {
-            formFieldType,
-            placeholder,
-            iconAlt,
-            iconSrc,
-            options,
-        } = props;
+        const { formFieldType, placeholder, iconAlt, iconSrc, options } = props;
         switch (formFieldType) {
             case FormFieldTypes.INPUT:
                 return (
@@ -62,6 +57,16 @@ export default function CustomFormField(props: CustomFormFieldPropTypes) {
                             />
                         </FormControl>
                     </div>
+                );
+            case FormFieldTypes.TEXTAREA:
+                return (
+                    <FormControl>
+                        <Textarea
+                            placeholder={placeholder}
+                            className="resize-none rounded-none active:rounded-md focus:rounded-md"
+                            {...field}
+                        />
+                    </FormControl>
                 );
             case FormFieldTypes.SELECT:
                 return (
@@ -91,7 +96,10 @@ export default function CustomFormField(props: CustomFormFieldPropTypes) {
                             </FormControl>
                             <SelectContent>
                                 {options?.map((option) => (
-                                    <SelectItem key={option.value} value={option.value}>
+                                    <SelectItem
+                                        key={option.value}
+                                        value={option.value}
+                                    >
                                         {option.text}
                                     </SelectItem>
                                 ))}
